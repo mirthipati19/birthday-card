@@ -1,0 +1,91 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 27% 65%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 27% 25%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 48 100% 50%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 27% 30%;
+    --input: 215 27% 30%;
+    --ring: 225 73% 57%;
+    
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-birthday-dark text-foreground font-poppins;
+    background: linear-gradient(135deg, #1a2d5e 0%, #2a5298 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Custom card flip styles */
+  .card-container {
+    perspective: 2000px;
+  }
+
+  .card {
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .card.open {
+    transform: rotateY(-180deg);
+  }
+
+  .card-front, .card-inside {
+    backface-visibility: hidden;
+  }
+
+  .card-inside {
+    transform: rotateY(180deg);
+  }
+}
